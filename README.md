@@ -7,15 +7,18 @@ Customer Filtering: Users can filter vehicles by customer using a dropdown.
 Real-Time Updates: The vehicle status is periodically updated (every minute) to reflect the latest information.
 Responsive Table: Vehicle information is displayed in a table with VIN, registration number, customer name, and connection status.
 
-# Source files
-* src/
-* ├── components/               # Contains React components
-* │   └── VehicleList.jsx       # Component to display vehicle data
-* ├── services/                 # Contains API service functions
-* │   └── api.js                # API functions for fetching vehicles
-* ├── App.jsx                   # Main application component
-* └── index.css                 # Basic styles (used bootstrap and custom styles)
-* api.js (Services)`            # Key features 
+
+```markdown
+# Source Files
+src/
+├── components/               # Contains React components
+│   └── VehicleList.jsx       # Component to display vehicle data
+├── services/                 # Contains API service functions
+│   └── api.js                # API functions for fetching vehicles
+├── App.jsx                   # Main application component
+└── index.css                 # Basic styles (uses Bootstrap and custom styles)
+api.js (Services)             # Key features
+```
 
 This file contains functions for interacting with the backend API.
 getVehicles Function: This function checks if a customerId is provided. If it is, it fetches vehicles for that specific customer; otherwise, it fetches all vehicles.
