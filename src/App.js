@@ -1,4 +1,6 @@
 import React from 'react';
+import './App.css';
+import './index.css';
 import VehicleList from './components/VehicleList';
 
 const App = () => {
@@ -6,6 +8,7 @@ const App = () => {
         <div>
             <VehicleList />
         </div>
+
     );
 };
 

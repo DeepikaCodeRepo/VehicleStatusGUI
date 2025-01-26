@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# Customer Vehicle Connection GUI(React App)
+This is the frontend for the Customer Vehicle Connection Monitoring application. It allows users to view vehicle connection status and filter them by customer. The frontend dynamically fetches data from the backend (Spring Boot with MySQL) and displays it in a table format. In every single minute vehicle status get updated with vehicle's latest connection value.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Core Features
+Dynamic Data Fetching: Data is fetched from the backend via API calls to the /api/vehicles endpoint.
+Customer Filtering: Users can filter vehicles by customer using a dropdown.
+Real-Time Updates: The vehicle status is periodically updated (every minute) to reflect the latest information.
+Responsive Table: Vehicle information is displayed in a table with VIN, registration number, customer name, and connection status.
 
-## Available Scripts
+# Source files
+* src/
+* ├── components/               # Contains React components
+* │   └── VehicleList.jsx       # Component to display vehicle data
+* ├── services/                 # Contains API service functions
+* │   └── api.js                # API functions for fetching vehicles
+* ├── App.jsx                   # Main application component
+* └── index.css                 # Basic styles (used bootstrap and custom styles)
+* api.js (Services)`            # Key features 
 
-In the project directory, you can run:
+This file contains functions for interacting with the backend API.
+getVehicles Function: This function checks if a customerId is provided. If it is, it fetches vehicles for that specific customer; otherwise, it fetches all vehicles.
 
-### `npm start`
+getCustomers Function: This function makes a simple GET request to fetch all customers.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+VehicleList.jsx (Component): The main component that displays the vehicles.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+State Management: Uses React hooks to manage the list of vehicles, the selected customerId, and the loading state.
 
-### `npm test`
+API Calls: Based on the selected customer, it fetches data from the API service.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Dropdown for Filtering: Allows users to filter vehicles by selecting a customer from the dropdown.
 
-### `npm run build`
+Dynamic Table: Displays the vehicle data in a table with VIN, registration number, customer name, and connection status (color-coded based on status).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+App.jsx (Main App Component):
+Contains the root structure of the app.
+Renders the VehicleList component to display the vehicle data.
+Process Flow
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Initial State: On initial load, the VehicleList component fetches all vehicles from the backend if no customer filter is selected.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Customer Filter: When a user selects a customer from the dropdown:
+The customerId state is updated. The component re-fetches the vehicle data based on the selected customer and update vehicle status
 
-### `npm run eject`
+Data Display: Once data is fetched, it is displayed in a table format with vehicle details.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## How to Run
+Start Backend: Ensure your Spring Boot backend is running with MySQL connected.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+mvn spring-boot:run
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Start Frontend: npm start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Open Application: Visit http://localhost:3000 to access the application in your browser.
 
-## Learn More
+# Tested data
+![customer vehicle data display.png](public/customer%20vehicle%20data%20display.png)
+![vehicle status updated.png](public/vehicle%20status%20updated.png)
+![Customer filtered data.png](public/Customer%20filtered%20data.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
