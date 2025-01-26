@@ -1,6 +1,12 @@
 # Customer Vehicle Connection GUI(React App)
 This is the frontend for the Customer Vehicle Connection Monitoring application. It allows users to view vehicle connection status and filter them by customer. The frontend dynamically fetches data from the backend (Spring Boot with MySQL) and displays it in a table format. In every single minute vehicle status get updated with vehicle's latest connection value.
 
+# Git Repo for API
+https://github.com/DeepikaCodeRepo/vehicle-status-backend.git
+
+# Git Repo for front end
+https://github.com/DeepikaCodeRepo/VehicleStatusGUI.git
+
 # Core Features
 Dynamic Data Fetching: Data is fetched from the backend via API calls to the /api/vehicles endpoint.
 Customer Filtering: Users can filter vehicles by customer using a dropdown.
